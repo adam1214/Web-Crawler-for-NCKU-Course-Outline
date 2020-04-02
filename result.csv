@@ -1,12 +1,9 @@
-""
-
-先修課程或先備能力 Prerequisite Course(s): 
-""
-
+先修課程或先備能力,教師聯絡資訊,評量方式,教學方法,課程教材,參考書目,課程概述,課程學習目標,課程進度
+"
+先修課程或先備能力 Prerequisite Course(s): ","
 教師聯絡資訊 Contact with Teacher
 e-mail: guosm@mail.ncku.edu.twtel: 062757575ext62525
-""
-
+","
 評量方式 Grading
 
 
@@ -14,12 +11,11 @@ e-mail: guosm@mail.ncku.edu.twtel: 062757575ext62525
 
 期中考 Midterm Exam
 30小組報告 Group Projects
-"40其他 others:出席, 考試, 學習態度...等"
+40其他 others:出席, 考試, 學習態度...等
 30 
 
 
-""
-
+","
 教學方法 Teaching Strategies
 
 
@@ -31,40 +27,15 @@ e-mail: guosm@mail.ncku.edu.twtel: 062757575ext62525
 20
 
 
-""
-
+","
 課程教材 Course Material
-"“SOFTWARE ENGINEERING: A Practitioner’s Approach ”, by Roger S. Pressman."
-"“SOFTWARE ENGINEERING”, by Sommerville."
+“SOFTWARE ENGINEERING: A Practitioner’s Approach ”, by Roger S. Pressman.
+“SOFTWARE ENGINEERING”, by Sommerville.
 Lecture Materials
-""
-
+","
 參考書目 References
-""
-
+","
 課程概述 Course Description
-       軟體工程是技術與管理上的準則，包含系統化地生產與維護軟體，使軟體能準時且在預算費用內發展與維護。Software engineering is the technological and managerial discipline concerned with systematic production and maintenance of software products that are developed and modified on time and within cost constraints.    
-""
-
+       軟體工程是技術與管理上的準則，包含系統化地生產與維護軟體，使軟體能準時且在預算費用內發展與維護。Software engineering is the technological and managerial discipline concerned with systematic production and maintenance of software products that are developed and modified on time and within cost constraints.    ","
 課程學習目標 Course Objectives
-The purpose of this course is to train the students to define a problem clearly.The purpose of this course is to determine its tractability.The purpose is to perform risk analysis on that design. 
-""
-Week,Progress Description
-1,Introduction of software engineering
-2,Product
-3,Process
-4,CMMI
-5,project management concepts
-6,software process and project metrics
-7,Software project planning
-8,Risk analysis and Management
-9,Software Quality Assurance
-10,Configuration Management
-11,midterm exam 
-12,project presentation
-13,System Analysis
-14,System Analysis
-15,project presentation
-16,System Design
-17,Software Testing
-18,final project presentation 
+The purpose of this course is to train the students to define a problem clearly.The purpose of this course is to determine its tractability.The purpose is to perform risk analysis on that design. ","[(1, 'Introduction of software engineering'), (2, 'Product'), (3, 'Process'), (4, 'CMMI'), (5, 'project management concepts'), (6, 'software process and project metrics'), (7, 'Software project planning'), (8, 'Risk analysis and Management'), (9, 'Software Quality Assurance'), (10, 'Configuration Management'), (11, 'midterm exam '), (12, 'project presentation'), (13, 'System Analysis'), (14, 'System Analysis'), (15, 'project presentation'), (16, 'System Design'), (17, 'Software Testing'), (18, 'final project presentation ')]"
