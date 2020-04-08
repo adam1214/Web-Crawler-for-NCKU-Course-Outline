@@ -49,19 +49,19 @@ if r.status_code == requests.codes.ok:
     for div in divs:
 
         if div.text.find('先修課程或先備能力') != -1:
-            Prerequisite = div.text
+            Prerequisite = div.text[1:]
 
         if div.text.find('教師聯絡資訊') != -1:
-            Contact = div.text
+            Contact = div.text[1:]
 
         if div.text.find('參考書目') != -1:
-            References = div.text
+            References = div.text[1:]
 
         if div.text.find('課程概述') != -1:
-            Description = div.text
+            Description = div.text[1:]
 
         if div.text.find('課程學習目標') != -1:
-            Objectives = div.text
+            Objectives = div.text[1:]
 
         if div.text.find('評量方式') != -1:
             #print(div.text)
@@ -96,7 +96,7 @@ if r.status_code == requests.codes.ok:
 
         if div.text.find('課程教材') != -1:
             #print(div.text)
-            Material = div.text
+            Material = div.text[1:]
            
         if div.text.find('課程進度') != -1:
             str = div.text.splitlines()[5]
