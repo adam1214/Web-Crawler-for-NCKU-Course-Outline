@@ -33,8 +33,6 @@ with open('ncku_course.csv', 'r', newline='', encoding="utf-8") as csvfile:
     # 以迴圈讀取每一列
     for row in rows:
         print(row_num)
-        if row_num == 4:
-            break
         if row_num == 1:
             with open('result.csv', 'w', newline='') as tablefile:
                 # 建立 CSV 檔寫入器
@@ -96,7 +94,6 @@ with open('ncku_course.csv', 'r', newline='', encoding="utf-8") as csvfile:
                     if div.text.find('教學方法') != -1:
                         #print(div.text)
                         str = div.text.splitlines()  
-
                         index = len(str) - 3
                         L1 = [None] * (index-5)
                         L2 = [None] * (index-5)
@@ -139,11 +136,12 @@ with open('ncku_course.csv', 'r', newline='', encoding="utf-8") as csvfile:
                         b = str.split('#')
 
                         Outline = list(zip(a,b))
+                        
             with open('result.csv', 'a', newline='') as tablefile:
                 # 建立 CSV 檔寫入器
                 writer = csv.writer(tablefile)
                 writer.writerow([row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8],row[9],row[10],row[11],row[12],row[13],row[14],Prerequisite,Contact,Grading,Strategies,Material,References,Description,Objectives,Outline])
             tablefile.close()  
-            #break    
+            break    
         row_num = row_num + 1
 csvfile.close()
