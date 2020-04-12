@@ -32,8 +32,6 @@ with open('ncku_course.csv', 'r', newline='', encoding="utf-8") as csvfile:
     row_num = 1
     # 以迴圈讀取每一列
     for row in rows:
-        if row_num == 5:
-            break
         print(row_num)
         if row_num == 1:
             with open('result.csv', 'w', newline='') as tablefile:
@@ -113,21 +111,28 @@ with open('ncku_course.csv', 'r', newline='', encoding="utf-8") as csvfile:
                         Material = div.text[1:]
                         
                     if div.text.find('課程進度') != -1:
-                        str = div.text.splitlines()[5]
-                        string = ''
-                        string_c = ''
-                        num = 2
-                        index = 1
+                        wk1 = soup.find(id='wk1')
+                        wk2 = soup.find(id='wk2')
+                        wk3 = soup.find(id='wk3')
+                        wk4 = soup.find(id='wk4')
+                        wk5 = soup.find(id='wk5')
+                        wk6 = soup.find(id='wk6')
+                        wk7 = soup.find(id='wk7')
+                        wk8 = soup.find(id='wk8')
+                        wk9 = soup.find(id='wk9')
+                        wk10 = soup.find(id='wk10')
+                        wk11 = soup.find(id='wk11')
+                        wk12 = soup.find(id='wk12')
+                        wk13 = soup.find(id='wk13')
+                        wk14 = soup.find(id='wk14')
+                        wk15 = soup.find(id='wk15')
+                        wk16 = soup.find(id='wk16')
+                        wk17 = soup.find(id='wk17')
+                        wk18 = soup.find(id='wk18')
                         L1 = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18']
-                        for i in range (1 , 18):
-                            match = re.search(L1[i] , str)
-                            string_c = str[index:match.span()[0]]+'#'
-                            string = string + string_c
-                            index = match.span()[1]
-                        string = string + str[index:len(str)]
-                        L2 = string.split('#')
-
+                        L2 = [wk1.text,wk2.text,wk3.text,wk4.text,wk5.text,wk6.text,wk7.text,wk8.text,wk9.text,wk10.text,wk11.text,wk12.text,wk13.text,wk14.text,wk15.text,wk16.text,wk17.text,wk18.text]
                         Outline = list(zip(L1,L2))
+                        #print(Outline)
                         
             with open('result.csv', 'a', newline='') as tablefile:
                 # 建立 CSV 檔寫入器
