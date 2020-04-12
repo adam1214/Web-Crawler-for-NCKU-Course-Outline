@@ -32,6 +32,8 @@ with open('ncku_course.csv', 'r', newline='', encoding="utf-8") as csvfile:
     row_num = 1
     # 以迴圈讀取每一列
     for row in rows:
+        if row_num == 5:
+            break
         print(row_num)
         if row_num == 1:
             with open('result.csv', 'w', newline='') as tablefile:
@@ -112,36 +114,26 @@ with open('ncku_course.csv', 'r', newline='', encoding="utf-8") as csvfile:
                         
                     if div.text.find('課程進度') != -1:
                         str = div.text.splitlines()[5]
-                        str=str.replace("10", "#")
-                        str=str.replace("11", "#")
-                        str=str.replace("12", "#")
-                        str=str.replace("13", "#")
-                        str=str.replace("14", "#")
-                        str=str.replace("15", "#")
-                        str=str.replace("16", "#")
-                        str=str.replace("17", "#")
-                        str=str.replace("18", "#")
-                        str=str.replace("1", "")
-                        str=str.replace("2", "#")
-                        str=str.replace("3", "#")
-                        str=str.replace("4", "#")
-                        str=str.replace("5", "#")
-                        str=str.replace("6", "#")
-                        str=str.replace("7", "#")
-                        str=str.replace("8", "#")
-                        str=str.replace("9", "#")
-                        str=str.replace("##", "#")
+                        string = ''
+                        string_c = ''
+                        num = 2
+                        index = 1
+                        L1 = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18']
+                        for i in range (1 , 18):
+                            match = re.search(L1[i] , str)
+                            string_c = str[index:match.span()[0]]+'#'
+                            string = string + string_c
+                            index = match.span()[1]
+                        string = string + str[index:len(str)]
+                        L2 = string.split('#')
 
-                        a = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]
-                        b = str.split('#')
-
-                        Outline = list(zip(a,b))
+                        Outline = list(zip(L1,L2))
                         
             with open('result.csv', 'a', newline='') as tablefile:
                 # 建立 CSV 檔寫入器
                 writer = csv.writer(tablefile)
                 writer.writerow([row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8],row[9],row[10],row[11],row[12],row[13],row[14],Prerequisite,Contact,Grading,Strategies,Material,References,Description,Objectives,Outline])
             tablefile.close()  
-            break    
+            #break    
         row_num = row_num + 1
 csvfile.close()
