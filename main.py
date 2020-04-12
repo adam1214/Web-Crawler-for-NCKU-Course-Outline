@@ -32,6 +32,8 @@ with open('ncku_course.csv', 'r', newline='', encoding="utf-8") as csvfile:
     row_num = 1
     # 以迴圈讀取每一列
     for row in rows:
+        if row_num == 10:
+            break
         print(row_num)
         if row_num == 1:
             with open('result.csv', 'w', newline='') as tablefile:
@@ -134,7 +136,7 @@ with open('ncku_course.csv', 'r', newline='', encoding="utf-8") as csvfile:
                         Outline = list(zip(L1,L2))
                         #print(Outline)
                         
-            with open('result.csv', 'a', newline='') as tablefile:
+            with open('result.csv', 'a', newline='', encoding="utf-8") as tablefile:
                 # 建立 CSV 檔寫入器
                 writer = csv.writer(tablefile)
                 writer.writerow([row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8],row[9],row[10],row[11],row[12],row[13],row[14],Prerequisite,Contact,Grading,Strategies,Material,References,Description,Objectives,Outline])
