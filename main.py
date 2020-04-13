@@ -10,6 +10,7 @@ import pandas as pd
 import csv
 import re
 from string import digits
+import codecs
 
 '''
 Windows環境中，若程式出現"UnicodeEncodeError: ‘cp950’ codec can’t encode character"的錯誤，可於terminal輸入"chcp 65001"來解決
@@ -26,6 +27,10 @@ def is_number(num):
   else:
     return False
 
+tablefile = codecs.open('result.csv', 'w', encoding="utf_8_sig") 
+# 建立 CSV 檔寫入器
+writer = csv.writer(tablefile)
+
 with open('ncku_course.csv', 'r', newline='', encoding="utf-8") as csvfile:
     # 讀取 CSV 檔案內容
     rows = csv.reader(csvfile)
@@ -36,11 +41,7 @@ with open('ncku_course.csv', 'r', newline='', encoding="utf-8") as csvfile:
             break
         print(row_num)
         if row_num == 1:
-            with open('result.csv', 'w', newline='') as tablefile:
-                # 建立 CSV 檔寫入器
-                writer = csv.writer(tablefile)
-                writer.writerow(["學院","系所名稱","系號-序號","課程碼-分班碼","屬性碼","年級","類別","科目名稱","學分","必/選修","教師姓名","已選課人數/餘額","時間","教室","課程大綱","先修課程或先備能力","教師聯絡資訊","評量方式","教學方法","課程教材","參考書目","課程概述","課程學習目標","課程進度"])
-            tablefile.close()
+            writer.writerow(["學院","系所名稱","系號-序號","課程碼-分班碼","屬性碼","年級","類別","科目名稱","學分","必/選修","教師姓名","已選課人數/餘額","時間","教室","課程大綱","先修課程或先備能力","教師聯絡資訊","評量方式","教學方法","課程教材","參考書目","課程概述","課程學習目標","課程進度"])
         else:
             Prerequisite = ""
             Contact = ""
@@ -135,12 +136,7 @@ with open('ncku_course.csv', 'r', newline='', encoding="utf-8") as csvfile:
                         L2 = [wk1.text,wk2.text,wk3.text,wk4.text,wk5.text,wk6.text,wk7.text,wk8.text,wk9.text,wk10.text,wk11.text,wk12.text,wk13.text,wk14.text,wk15.text,wk16.text,wk17.text,wk18.text]
                         Outline = list(zip(L1,L2))
                         #print(Outline)
-                        
-            with open('result.csv', 'a', newline='', encoding="utf-8") as tablefile:
-                # 建立 CSV 檔寫入器
-                writer = csv.writer(tablefile)
-                writer.writerow([row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8],row[9],row[10],row[11],row[12],row[13],row[14],Prerequisite,Contact,Grading,Strategies,Material,References,Description,Objectives,Outline])
-            tablefile.close()  
-            #break    
+            writer.writerow([row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8],row[9],row[10],row[11],row[12],row[13],row[14],Prerequisite,Contact,Grading,Strategies,Material,References,Description,Objectives,Outline])   
         row_num = row_num + 1
 csvfile.close()
+tablefile.close()
